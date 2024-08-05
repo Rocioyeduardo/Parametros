@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leer Parámetros URL</title>
+    <script>
+        function getQueryParams() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const params = {};
+            for (const [key, value] of urlParams.entries()) {
+                params[key] = value;
+            }
+            return params;
+        }
+
+        function displayParams() {
+            const params = getQueryParams();
+            document.getElementById('output').innerText = JSON.stringify(params, null, 2);
+        }
+    </script>
+</head>
+<body onload="displayParams()">
+    <h1>Parámetros de la URL</h1>
+    <pre id="output"></pre>
+</body>
+</html>
